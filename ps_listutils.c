@@ -6,7 +6,7 @@
 /*   By: lemarino <lemarino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 18:22:28 by lemarino          #+#    #+#             */
-/*   Updated: 2025/03/17 18:24:59 by lemarino         ###   ########.fr       */
+/*   Updated: 2025/03/19 16:34:02 by lemarino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,32 @@ size_t	ft_stacksize(t_stack *root)
 		tmp = tmp -> next;
 	}
 	return (count);
+}
+
+
+void	three_sort(t_stack **a)
+{
+	int *first;
+	int *second;
+	int *third;
+
+	first = (*a)->nbr;
+	second = (*a)->next->nbr;
+	third = (*a)->next->next->nbr;
+	if (first < second && second > third && first < third)
+		rra(a);
+	else if (first < second && second > third && first > third)
+	{
+		ra(a);
+		sa(a);
+	}
+	else if (first > second && second > third && third < first)
+	{
+		sa(a);
+		ra(a);
+	}
+	else if (first > second && second < third && third < first)
+		ra(a);
+	else if (first > second && second < third && third > first)
+		sa(a);
 }

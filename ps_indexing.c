@@ -6,7 +6,7 @@
 /*   By: lemarino <lemarino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 12:01:32 by lemarino          #+#    #+#             */
-/*   Updated: 2025/03/18 15:54:01 by lemarino         ###   ########.fr       */
+/*   Updated: 2025/03/19 16:33:55 by lemarino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,10 @@ void	*sort_list(t_stack *root)
 	return (begin);
 }
 
-// "i" starts from -1 bc I needed to increase it at the beginning of the loop,
-//		blame norminette.
 void	create_index(char **array, t_stack *root)
 {
-	t_stack	*tmp;
 	t_stack *sortedcpy;
+	t_stack	*tmp;
 	t_stack	*cpyhead;
 	int		i;
 
@@ -70,5 +68,6 @@ void	create_index(char **array, t_stack *root)
 		else
 			sortedcpy = sortedcpy->next;
 	}
+	sortedcpy = cpyhead;
 	free_stack(&cpyhead);
 }

@@ -6,7 +6,7 @@
 /*   By: lemarino <lemarino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 12:43:10 by lemarino          #+#    #+#             */
-/*   Updated: 2025/03/17 18:24:23 by lemarino         ###   ########.fr       */
+/*   Updated: 2025/03/19 16:34:50 by lemarino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,15 @@
 typedef	struct		s_stack
 {
 	int				nbr;
-	int				index;// pushare in chunk di numeri con indici vicini
+	int				index;
+	int				cost_a;
+	int				cost_b;
 	struct s_stack	*next;
 }					t_stack;
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
+t_stack	*ft_fill_stack(char **array);
 void	sa(t_stack **stack_a);
 void	sb(t_stack **stack_b);
 void	ss(t_stack **stack_a, t_stack **stack_b);
@@ -51,8 +54,12 @@ void	rra(t_stack **stack_a);
 void	rrb(t_stack **stack_b);
 void	rrr(t_stack **stack_a, t_stack **stack_b);
 size_t	ft_stacksize(t_stack *root);
+void	create_index(char **array, t_stack *root);
+void	get_cost_a(t_stack **stack_a);///##############
+void	get_costs(t_stack **stack_a, t_stack **stack_b);
 void	free_stack(t_stack **root);
+void	three_sort(t_stack **stack_a);
 
 #endif
 
-// valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all 
+// valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all

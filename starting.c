@@ -6,7 +6,7 @@
 /*   By: lemarino <lemarino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 12:10:34 by lemarino          #+#    #+#             */
-/*   Updated: 2025/03/17 18:06:43 by lemarino         ###   ########.fr       */
+/*   Updated: 2025/03/19 16:32:43 by lemarino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ t_stack	*ft_fill_stack(char **array)
 }
 
 
-
 int	main(int ac, char *av[])
 {
 	t_stack	*stack_a;
@@ -53,6 +52,7 @@ int	main(int ac, char *av[])
 	
 	stack_a = ft_fill_stack(av);
 	headA = stack_a;
+	// create_index(av, stack_a);
 	while (stack_a)
 	{
 		printf(GREEN"%d\n"NO_COLOR, stack_a->nbr);//##################
@@ -63,33 +63,39 @@ int	main(int ac, char *av[])
 	pb(&stack_a, &stack_b);
 	pb(&stack_a, &stack_b);
 	pb(&stack_a, &stack_b);
-	rrr(&stack_a, &stack_b);
-	rb(&stack_b);
-	rr(&stack_a, &stack_b);
-	sb(&stack_b);
-	sa(&stack_a);
-	pa(&stack_b, &stack_a);
-	pa(&stack_b, &stack_a);
-	pa(&stack_b, &stack_a);
-	pa(&stack_b, &stack_a);
+	pb(&stack_a, &stack_b);
+	pb(&stack_a, &stack_b);
 	headB = stack_b;
 	headA = stack_a;
-	while(stack_b)
-	{
-		printf(CYAN"%d\n"NO_COLOR, stack_b->nbr);//##################
-		stack_b = stack_b->next;
-	}
+	
+	// headA = stack_a;
+	get_costs(&stack_a, &stack_b);
 	while (stack_a)
 	{
 		printf(GREEN"%d\n"NO_COLOR, stack_a->nbr);//##################
+		printf(YELLOW"%d\n"NO_COLOR, stack_a->cost_a);//##################
 		stack_a = stack_a->next;
 	}
-	stack_b = headB;
 	while(stack_b)
 	{
 		printf(CYAN"%d\n"NO_COLOR, stack_b->nbr);//##################
+		printf(MAGENTA"%d\n"NO_COLOR, stack_b->cost_b);//##################
 		stack_b = stack_b->next;
 	}
+
+	// stack_a = headA;
+	// get_cost_a(&stack_a);
+	// while (stack_a)
+	// {
+	// 	printf(MAGENTA"%d\n"NO_COLOR, stack_a->cost_a);//##################
+	// 	stack_a = stack_a->next;
+	// }
+	// stack_b = headB;
+	// while(stack_b)
+	// {
+	// 	printf(CYAN"%d\n"NO_COLOR, stack_b->nbr);//##################
+	// 	stack_b = stack_b->next;
+	// }
 	stack_b = headB;
 	stack_a = headA;
 	free_stack(&stack_a);
