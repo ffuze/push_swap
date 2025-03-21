@@ -6,16 +6,16 @@
 /*   By: lemarino <lemarino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 17:52:45 by lemarino          #+#    #+#             */
-/*   Updated: 2025/03/21 11:54:49 by lemarino         ###   ########.fr       */
+/*   Updated: 2025/03/21 16:36:05 by lemarino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // Counts the number of nodes in a stack.
-size_t	ft_stacksize(t_stack *root)
+int	ft_stacksize(t_stack *root)
 {
-	size_t	count;
+	int	count;
 	t_stack	*tmp;
 
 	tmp = root;

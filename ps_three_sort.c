@@ -6,7 +6,7 @@
 /*   By: lemarino <lemarino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 16:57:32 by lemarino          #+#    #+#             */
-/*   Updated: 2025/03/20 18:16:16 by lemarino         ###   ########.fr       */
+/*   Updated: 2025/03/21 16:04:09 by lemarino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,18 @@ static void	three_sort_checks(t_stack **a, t_stack *first,
 {
 	if (first->nbr < second->nbr && second->nbr > third->nbr \
 												&& first->nbr < third->nbr)
-		rra(a);
-	else if (first->nbr < second->nbr && second->nbr > third->nbr \
-												&& first->nbr > third->nbr)
 	{
-		ra(a);
+		rra(a);
 		sa(a);
 	}
+	else if (first->nbr < second->nbr && second->nbr > third->nbr \
+												&& first->nbr > third->nbr)
+		rra(a);
 	else if (first->nbr > second->nbr && second->nbr > third->nbr \
 												&& third->nbr < first->nbr)
 	{
 		sa(a);
-		ra(a);
+		rra(a);
 	}
 	else if (first->nbr > second->nbr && second->nbr < third->nbr \
 												&& third->nbr < first->nbr)
