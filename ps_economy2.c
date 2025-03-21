@@ -6,7 +6,7 @@
 /*   By: lemarino <lemarino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 18:40:07 by lemarino          #+#    #+#             */
-/*   Updated: 2025/03/21 11:58:58 by lemarino         ###   ########.fr       */
+/*   Updated: 2025/03/21 13:18:22 by lemarino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ int	total_cost(int cost_a, int cost_b)
 	int	abs_a;
 	int	abs_b;
 
+	printf(GREEN"costB: %d, costA: %d\n", cost_a, cost_b);//#####################
 	abs_a = ft_abs(cost_a);
 	abs_b = ft_abs(cost_b);
+	printf(YELLOW"absB: %d, absA: %d\n", abs_a, abs_b);//#####################
 	if ((cost_a > 0 && cost_b > 0) || (cost_a < 0 && cost_b < 0))
 	{
 		if (abs_a > abs_b)
@@ -35,18 +37,25 @@ int	total_cost(int cost_a, int cost_b)
 int	fill_costs_array(t_stack *a, t_stack *tmp_b)
 {
 	t_stack	*tmp_a;
+	t_stack	*tmp_a2;
 	int		i;
 	
 	tmp_a = a;
-	get_costs(&tmp_a, &tmp_b);
-	i = 0;
+	// get_costs(&tmp_a, &tmp_b);
+	i = 1;
 	while (tmp_a)
 	{
-		if (tmp_b->index == (tmp_a->index - i))
-			return (total_cost(tmp_a->cost_a, tmp_b->cost_b));
-		tmp_a = tmp_a->next;
+		tmp_a2 = a;
+		while (tmp_a2)
+		{
+			printf("cost B: %d, cost A: %d, i: %d\n", tmp_b->cost_b, tmp_a2->cost_a, i);//#####################
+			if (tmp_b->index == (tmp_a2->index - i))
+				return (total_cost(tmp_a2->cost_a, tmp_b->cost_b));
+			tmp_a2 = tmp_a2->next;
+		}
 		i++;
 	}
+	printf("DDDddddDDD");//##############################c
 	return (0);
 }
 
@@ -66,6 +75,7 @@ int	*get_costs_array(t_stack *a, t_stack *b)
 	while (tmp_b)
 	{
 		costs_arr[j] = fill_costs_array(a, tmp_b);
+		printf(RED"Cost for  B node %d= %d\n"NO_COLOR, tmp_b->nbr, costs_arr[j]);//##################
 		/* tmp_a = a;
 		i = 0;
 		while (tmp_a)
