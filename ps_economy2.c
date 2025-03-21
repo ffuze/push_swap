@@ -6,7 +6,7 @@
 /*   By: lemarino <lemarino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 18:40:07 by lemarino          #+#    #+#             */
-/*   Updated: 2025/03/21 17:14:28 by lemarino         ###   ########.fr       */
+/*   Updated: 2025/03/21 20:48:46 by lemarino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 // Create an array holding the number of moves needed to move each element
 //  in stackB above the greatest number inferior to it in stackA
+
 int	total_cost(int cost_a, int cost_b)
 {
 	int	abs_a;
@@ -77,4 +78,30 @@ int	*get_costs_array(t_stack *a, t_stack *b)
 		j++;
 	}
 	return (costs_arr);
+}
+
+// Finds the cheapest number to move from stack B to A by comparing
+//  the values in costs_arr
+t_stack	*ft_lowest_cost(t_stack *b, int *costs_arr)
+{
+	t_stack	*tmp;
+	t_stack	*cheapest_node;
+	int		lowest_sofar;
+	int		i;
+
+	i = 0;
+	lowest_sofar = costs_arr[i];
+	tmp = b;
+	cheapest_node = b;
+	while (tmp)
+	{
+		if (costs_arr[i] < lowest_sofar)
+		{
+			lowest_sofar = costs_arr[i];
+			cheapest_node = tmp;
+		}
+		tmp = tmp->next;
+		i++;
+	}
+	return (cheapest_node);
 }

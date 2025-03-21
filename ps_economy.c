@@ -6,15 +6,16 @@
 /*   By: lemarino <lemarino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 14:13:21 by lemarino          #+#    #+#             */
-/*   Updated: 2025/03/21 15:25:45 by lemarino         ###   ########.fr       */
+/*   Updated: 2025/03/21 19:33:43 by lemarino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // Calculate the number and type of rotations to bring each node to the top
-// cost > 0: rotate.
-// cost < 0: reverse rotate.
+// cost < 0: rotate.
+// cost > 0: reverse rotate.
+
 void	get_cost_a(t_stack **stack_a)
 {
 	t_stack	*tmp;

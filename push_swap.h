@@ -6,7 +6,7 @@
 /*   By: lemarino <lemarino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 12:43:10 by lemarino          #+#    #+#             */
-/*   Updated: 2025/03/21 16:43:09 by lemarino         ###   ########.fr       */
+/*   Updated: 2025/03/21 22:51:10 by lemarino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ void	three_sort(t_stack **stack_a);
 void	push_to_three(t_stack **stack_a, t_stack **stack_b);
 int		ft_abs(int n);
 int		*get_costs_array(t_stack *a, t_stack *b);
+t_stack	*ft_lowest_cost(t_stack *b, int *costs_arr);
+void	match_nodes(t_stack **a, t_stack **b, int *costs_arr);
 // t_stack	*get_cheapest_cost(t_stack *stack);
 // void	sort_stack_b(t_stack **b);
 

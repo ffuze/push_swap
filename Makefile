@@ -4,8 +4,8 @@ NAME = push_swap
 OBJ_DIR = obj
 
 SRC_MAIN = ps_swap.c ps_push.c ps_rotate.c ps_revrotate.c ps_liberate.c \
-			ps_listutils.c starting.c ps_indexing.c ps_economy.c ps_economy2.c \
-			ps_three_sort.c ps_selection.c \
+			ps_listutils.c ps_indexing.c ps_economy.c ps_economy2.c \
+			ps_three_sort.c ps_selection.c ps_executemoves.c starting.c \
 			
 
 OBJECTS_MAIN = $(SRC_MAIN:%.c=$(OBJ_DIR)/%.o)
