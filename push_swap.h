@@ -6,7 +6,7 @@
 /*   By: lemarino <lemarino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 12:43:10 by lemarino          #+#    #+#             */
-/*   Updated: 2025/03/19 16:34:50 by lemarino         ###   ########.fr       */
+/*   Updated: 2025/03/21 11:53:43 by lemarino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,14 @@ void	rrr(t_stack **stack_a, t_stack **stack_b);
 size_t	ft_stacksize(t_stack *root);
 void	create_index(char **array, t_stack *root);
 void	get_cost_a(t_stack **stack_a);///##############
+void	get_cost_b(t_stack **stack_b);
 void	get_costs(t_stack **stack_a, t_stack **stack_b);
 void	free_stack(t_stack **root);
 void	three_sort(t_stack **stack_a);
+int		ft_abs(int n);
+int		*get_costs_array(t_stack *a, t_stack *b);
+// t_stack	*get_cheapest_cost(t_stack *stack);
+// void	sort_stack_b(t_stack **b);
 
 #endif
 

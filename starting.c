@@ -6,7 +6,7 @@
 /*   By: lemarino <lemarino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 12:10:34 by lemarino          #+#    #+#             */
-/*   Updated: 2025/03/19 16:32:43 by lemarino         ###   ########.fr       */
+/*   Updated: 2025/03/21 12:05:34 by lemarino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int	main(int ac, char *av[])
 	t_stack	*stack_b = NULL;
 	t_stack	*headA;
 	t_stack	*headB;
+	int		*costs_arr;
 
 	if (ac <= 2)
 		return (0);
@@ -52,10 +53,11 @@ int	main(int ac, char *av[])
 	
 	stack_a = ft_fill_stack(av);
 	headA = stack_a;
-	// create_index(av, stack_a);
+	create_index(av, stack_a);
 	while (stack_a)
 	{
 		printf(GREEN"%d\n"NO_COLOR, stack_a->nbr);//##################
+		printf(RED"%d\n"NO_COLOR, stack_a->index);//##################
 		stack_a = stack_a->next;
 	}
 	stack_a = headA;
@@ -65,10 +67,18 @@ int	main(int ac, char *av[])
 	pb(&stack_a, &stack_b);
 	pb(&stack_a, &stack_b);
 	pb(&stack_a, &stack_b);
+
+	// int	i = 0;
+	costs_arr = get_costs_array(stack_a, stack_b);
+	// while (i < ft_stacksize(stack_b))
+	// {
+	// 	printf(cost)
+	// }
+
 	headB = stack_b;
 	headA = stack_a;
-	
-	// headA = stack_a;
+	three_sort(&stack_a);
+	headA = stack_a;
 	get_costs(&stack_a, &stack_b);
 	while (stack_a)
 	{
