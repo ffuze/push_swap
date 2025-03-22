@@ -6,7 +6,7 @@
 /*   By: lemarino <lemarino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 16:57:32 by lemarino          #+#    #+#             */
-/*   Updated: 2025/03/21 16:04:09 by lemarino         ###   ########.fr       */
+/*   Updated: 2025/03/22 15:29:43 by lemarino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,22 +50,16 @@ void	three_sort(t_stack **a)
 	three_sort_checks(a, first, second, third);
 }
 
-/* void	move_b_to_top(t_stack **stack_b, t_stack *target)
+void	push_to_three(t_stack **stack_a, t_stack **stack_b)
 {
-	while (*stack_b != target)
+	int	len_stack_a;
+
+	len_stack_a = ft_stacksize(*stack_a);
+	while (ft_stacksize(*stack_a) > 3)
 	{
-		if (target->cost_b < 0)
-			rrb(stack_b);
+		if ((*stack_a)->index < (len_stack_a - 3))
+			pb(stack_a, stack_b);
 		else
-			rb(stack_b);
+			ra(stack_a);
 	}
 }
-
-void	sort_stack_b(t_stack **b)
-{
-	t_stack	*target;
-
-	get_cost_b(b);
-	target = get_cheapest_cost(*b);
-	move_b_to_top(b, target);
-} */

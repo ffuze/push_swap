@@ -6,14 +6,14 @@
 /*   By: lemarino <lemarino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 14:58:08 by lemarino          #+#    #+#             */
-/*   Updated: 2025/03/17 14:58:08 by lemarino         ###   ########.fr       */
+/*   Updated: 2025/03/22 18:43:01 by lemarino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // Variables are named after the position they will occupy at the end
-static void	ft_rotate(t_stack **root)
+void	ft_rotate(t_stack **root)
 {
 	t_stack	*last;
 	t_stack	*first;

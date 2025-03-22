@@ -6,13 +6,13 @@
 /*   By: lemarino <lemarino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 12:01:32 by lemarino          #+#    #+#             */
-/*   Updated: 2025/03/19 16:33:55 by lemarino         ###   ########.fr       */
+/*   Updated: 2025/03/22 15:25:53 by lemarino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(int *a, int *b)
+static void	swap(int *a, int *b)
 {
 	int	tmp;
 
@@ -21,7 +21,7 @@ void	swap(int *a, int *b)
 	*b = tmp;
 }
 
-void	*sort_list(t_stack *root)
+static void	*sort_list(t_stack *root)
 {
 	t_stack	*lst;
 	t_stack	*begin;

@@ -6,7 +6,7 @@
 /*   By: lemarino <lemarino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 19:34:18 by lemarino          #+#    #+#             */
-/*   Updated: 2025/03/21 22:52:01 by lemarino         ###   ########.fr       */
+/*   Updated: 2025/03/22 18:52:11 by lemarino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ void	identify_moves(t_stack **a, t_stack **b, t_stack *node_a, t_stack *node_b)
 
 	a_rots = node_a->cost_a;
 	b_rots = node_b->cost_b;
-	while (a_rots != 0 && b_rots != 0)
+
+	// printf(YELLOW"a_rots: %d, b_rots: %d\n"NO_COLOR, a_rots, b_rots);//##################
+	while (a_rots != 0 || b_rots != 0)
 	{
 		if (a_rots > 0 && b_rots > 0)
 		{
@@ -77,8 +79,9 @@ void	match_nodes(t_stack **a, t_stack **b, int *costs_arr)
 
 	i = 1;
 	cheapest_node = ft_lowest_cost(*b, costs_arr);
+	// printf(CYAN"2-selected B node: %d, moves: %d\n"NO_COLOR, cheapest_node->nbr, cheapest_node->cost_b);//##################
 	tmp_a = *a;
-	tmp_b = *b;
+	tmp_b = cheapest_node;
 	while (tmp_a)
 	{
 		tmp_a2 = *a;

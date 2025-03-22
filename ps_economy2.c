@@ -6,7 +6,7 @@
 /*   By: lemarino <lemarino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 18:40:07 by lemarino          #+#    #+#             */
-/*   Updated: 2025/03/21 20:48:46 by lemarino         ###   ########.fr       */
+/*   Updated: 2025/03/22 18:51:57 by lemarino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // Create an array holding the number of moves needed to move each element
 //  in stackB above the greatest number inferior to it in stackA
 
-int	total_cost(int cost_a, int cost_b)
+static int	total_cost(int cost_a, int cost_b)
 {
 	int	abs_a;
 	int	abs_b;
@@ -35,7 +35,7 @@ int	total_cost(int cost_a, int cost_b)
 		return (abs_a + abs_b);
 }
 
-int	fill_costs_array(t_stack *a, t_stack *tmp_b)
+static int	fill_costs_array(t_stack *a, t_stack *tmp_b)
 {
 	t_stack	*tmp_a;
 	t_stack	*tmp_a2;
@@ -49,7 +49,6 @@ int	fill_costs_array(t_stack *a, t_stack *tmp_b)
 		tmp_a2 = a;
 		while (tmp_a2)
 		{
-			// printf("cost B: %d, cost A: %d, i: %d\n", tmp_b->cost_b, tmp_a2->cost_a, i);//#####################
 			if (tmp_b->index == (tmp_a2->index - i))
 				return (total_cost(tmp_a2->cost_a, tmp_b->cost_b));
 			tmp_a2 = tmp_a2->next;
@@ -70,6 +69,7 @@ int	*get_costs_array(t_stack *a, t_stack *b)
 	costs_arr = malloc(ft_stacksize(b) * sizeof(int));
 	if (!costs_arr)
 		return (NULL);
+	get_costs(&a, &b);
 	while (tmp_b)
 	{
 		costs_arr[j] = fill_costs_array(a, tmp_b);
