@@ -6,7 +6,7 @@
 /*   By: lemarino <lemarino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 16:57:32 by lemarino          #+#    #+#             */
-/*   Updated: 2025/03/22 15:29:43 by lemarino         ###   ########.fr       */
+/*   Updated: 2025/03/24 12:29:24 by lemarino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,18 +48,4 @@ void	three_sort(t_stack **a)
 	second = (*a)->next;
 	third = (*a)->next->next;
 	three_sort_checks(a, first, second, third);
-}
-
-void	push_to_three(t_stack **stack_a, t_stack **stack_b)
-{
-	int	len_stack_a;
-
-	len_stack_a = ft_stacksize(*stack_a);
-	while (ft_stacksize(*stack_a) > 3)
-	{
-		if ((*stack_a)->index < (len_stack_a - 3))
-			pb(stack_a, stack_b);
-		else
-			ra(stack_a);
-	}
 }
