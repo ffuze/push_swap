@@ -6,7 +6,7 @@
 /*   By: lemarino <lemarino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 19:46:35 by lemarino          #+#    #+#             */
-/*   Updated: 2025/03/25 15:29:05 by lemarino         ###   ########.fr       */
+/*   Updated: 2025/03/25 18:12:23 by lemarino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ int	ft_parsing(char **args)
 	while (args[i])
 	{
 		j = 0;
-		if (args[i][0] == '-')
+		if (args[i][0] == '-' && args[i][1])
 			j++;
-		if (ft_atoi(args[i]) > INT_MAX || ft_atoi(args[i]) < INT_MIN)
+		if (ft_atoi(args[i]) > INT_MAX || ft_atoi(args[i]) < INT_MIN || args[i][0] == 0)
 			return (write(2, RED"Error\n"NO_COLOR, 11), 0);
 		else
 		{
@@ -67,7 +67,7 @@ char	**exclude_executable(int ac, char **av)
 
 	i = 1;
 	j = 0;
-	array = malloc(ac * sizeof(char *));
+	array = ft_calloc(ac, sizeof(char *));
 	if (!array)
 		return (NULL);
 	while (av[i])
