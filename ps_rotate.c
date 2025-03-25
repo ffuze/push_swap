@@ -6,7 +6,7 @@
 /*   By: lemarino <lemarino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 14:58:08 by lemarino          #+#    #+#             */
-/*   Updated: 2025/03/24 15:56:46 by lemarino         ###   ########.fr       */
+/*   Updated: 2025/03/22 18:43:01 by lemarino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	ra(t_stack **stack_a)
 	if (*stack_a && (*stack_a)->next)
 	{
 		ft_rotate(stack_a);
-		ft_printf("ra\n");
+		ft_printf(MAGENTA"ra\n"NO_COLOR);
 	}
 	else
 		ft_printf(RED"Could't rotate stack_a."NO_COLOR);
@@ -50,7 +50,7 @@ void	rb(t_stack **stack_b)
 	if (*stack_b && (*stack_b)->next)
 	{
 		ft_rotate(stack_b);
-		ft_printf("rb\n");
+		ft_printf(MAGENTA"rb\n"NO_COLOR);
 	}
 	else
 		ft_printf(RED"Could't rotate stack_b."NO_COLOR);
@@ -63,7 +63,7 @@ void	rr(t_stack **stack_a, t_stack **stack_b)
 	{
 		ft_rotate(stack_a);
 		ft_rotate(stack_b);
-		ft_printf("rr\n");
+		ft_printf(MAGENTA"rr\n"NO_COLOR);
 	}
 	else
 		ft_printf(RED"Could't rotate stacks."NO_COLOR);

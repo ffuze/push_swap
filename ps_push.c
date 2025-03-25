@@ -6,7 +6,7 @@
 /*   By: lemarino <lemarino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 12:16:56 by lemarino          #+#    #+#             */
-/*   Updated: 2025/03/24 16:03:17 by lemarino         ###   ########.fr       */
+/*   Updated: 2025/03/13 12:16:56 by lemarino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	pa(t_stack **stack_b, t_stack **stack_a)
 	if (*stack_b && stack_b)
 	{
 		ft_push(stack_b, stack_a);
-		ft_printf("pa\n");
+		ft_printf(MAGENTA"pa\n"NO_COLOR);
 	}
 	else
 		ft_printf(RED"Missing stack_b\n"NO_COLOR);
@@ -42,7 +42,7 @@ void	pb(t_stack **stack_a, t_stack **stack_b)
 	if (*stack_a && stack_a)
 	{
 		ft_push(stack_a, stack_b);
-		ft_printf("pb\n");
+		ft_printf(MAGENTA"pb\n"NO_COLOR);
 	}
 	else
 		ft_printf(RED"Missing stack_a\n"NO_COLOR);

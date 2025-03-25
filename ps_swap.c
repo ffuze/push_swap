@@ -6,7 +6,7 @@
 /*   By: lemarino <lemarino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 16:47:34 by lemarino          #+#    #+#             */
-/*   Updated: 2025/03/24 16:06:37 by lemarino         ###   ########.fr       */
+/*   Updated: 2025/03/12 16:47:34 by lemarino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	sa(t_stack **stack_a)
 	if (*stack_a && (*stack_a)->next)
 	{
 		ft_swap(stack_a);
-		ft_printf("sa\n");
+		ft_printf(MAGENTA"sa\n"NO_COLOR);
 	}
 }
 
@@ -40,7 +40,7 @@ void	sb(t_stack **stack_b)
 	if (*stack_b && (*stack_b)->next)
 	{
 		ft_swap(stack_b);
-		ft_printf("sb\n");
+		ft_printf(MAGENTA"sb\n"NO_COLOR);
 	}
 }
 
@@ -51,6 +51,6 @@ void	ss(t_stack **stack_a, t_stack **stack_b)
 	{
 		ft_swap(stack_a);
 		ft_swap(stack_b);  
-		ft_printf("ss\n");
+		ft_printf(MAGENTA"ss\n"NO_COLOR);
 	}
 }

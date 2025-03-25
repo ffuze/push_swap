@@ -6,7 +6,7 @@
 /*   By: lemarino <lemarino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 12:10:34 by lemarino          #+#    #+#             */
-/*   Updated: 2025/03/24 17:38:50 by lemarino         ###   ########.fr       */
+/*   Updated: 2025/03/24 15:37:10 by lemarino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,12 @@ int	main(int ac, char *av[])
 	stack_a = ft_fill_stack(av);
 	headA = stack_a;
 	create_index(av, stack_a);
-	// while (stack_a)
-	// {
-	// 	printf(GREEN"%d\n"NO_COLOR, stack_a->nbr);//##################
-	// 	// printf(RED"%d\n"NO_COLOR, stack_a->index);//##################
-	// 	stack_a = stack_a->next;
-	// }
+	while (stack_a)
+	{
+		printf(GREEN"%d\n"NO_COLOR, stack_a->nbr);//##################
+		// printf(RED"%d\n"NO_COLOR, stack_a->index);//##################
+		stack_a = stack_a->next;
+	}
 	stack_a = headA;
 
 	// pb(&stack_a, &stack_b);
@@ -67,9 +67,9 @@ int	main(int ac, char *av[])
 	// pb(&stack_a, &stack_b);
 	// pb(&stack_a, &stack_b);
 	// pb(&stack_a, &stack_b);
-	// push_to_three(&stack_a, &stack_b);
-	fill_stack_b(&stack_a, &stack_b);
-	// three_sort(&stack_a);
+	push_to_three(&stack_a, &stack_b);
+	// fill_stack_b(&stack_a, &stack_b);
+	three_sort(&stack_a);
 	// get_costs(&stack_a, &stack_b);
 
 	// headB = stack_b;
@@ -109,7 +109,7 @@ int	main(int ac, char *av[])
 	headA = stack_a;
 	while (stack_a)
 	{
-		printf(YELLOW"%d; "NO_COLOR, stack_a->nbr);//##################
+		printf(YELLOW"%d\n"NO_COLOR, stack_a->nbr);//##################
 		stack_a = stack_a->next;
 	}
 	// stack_b = headB;
