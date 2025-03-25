@@ -6,7 +6,7 @@
 /*   By: lemarino <lemarino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 18:40:07 by lemarino          #+#    #+#             */
-/*   Updated: 2025/03/22 18:51:57 by lemarino         ###   ########.fr       */
+/*   Updated: 2025/03/24 19:09:39 by lemarino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,8 @@ static int	total_cost(int cost_a, int cost_b)
 	int	abs_a;
 	int	abs_b;
 
-	// printf(GREEN"costB: %d, costA: %d\n", cost_a, cost_b);//#####################
 	abs_a = ft_abs(cost_a);
 	abs_b = ft_abs(cost_b);
-	// printf(YELLOW"absB: %d, absA: %d\n", abs_a, abs_b);//#####################
 	if ((cost_a > 0 && cost_b > 0) || (cost_a < 0 && cost_b < 0))
 	{
 		if (abs_a > abs_b)
@@ -42,7 +40,6 @@ static int	fill_costs_array(t_stack *a, t_stack *tmp_b)
 	int		i;
 	
 	tmp_a = a;
-	// get_costs(&tmp_a, &tmp_b);
 	i = 1;
 	while (tmp_a)
 	{
@@ -73,7 +70,6 @@ int	*get_costs_array(t_stack *a, t_stack *b)
 	while (tmp_b)
 	{
 		costs_arr[j] = fill_costs_array(a, tmp_b);
-		// printf(RED"Cost for  B node %d= %d\n"NO_COLOR, tmp_b->nbr, costs_arr[j]);//##################
 		tmp_b = tmp_b->next;
 		j++;
 	}

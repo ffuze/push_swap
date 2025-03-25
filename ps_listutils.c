@@ -6,29 +6,29 @@
 /*   By: lemarino <lemarino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 17:52:45 by lemarino          #+#    #+#             */
-/*   Updated: 2025/03/22 18:49:58 by lemarino         ###   ########.fr       */
+/*   Updated: 2025/03/25 12:38:41 by lemarino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*ft_fill_stack(char **array)
+t_stack	*ft_fill_stack(char **args)
 {
 	t_stack	*new_node;
-	t_stack *root;
+	t_stack	*root;
 	t_stack	*prev;
 	int	i;
 
-	i = 1;
+	i = 0;
 	new_node = NULL;
-	while(array[i])
+	while(args[i])
 	{
 		prev = new_node;
 		new_node = ft_calloc(1, sizeof(t_stack));
 		if (!new_node)
 			return (NULL);
-		new_node -> nbr = ft_atoi(array[i]);
-		if (i == 1)
+		new_node -> nbr = ft_atoi(args[i]);
+		if (i == 0)
 			root = new_node;
 		else
 			prev->next = new_node;

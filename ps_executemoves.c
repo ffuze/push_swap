@@ -6,7 +6,7 @@
 /*   By: lemarino <lemarino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 19:34:18 by lemarino          #+#    #+#             */
-/*   Updated: 2025/03/22 18:52:11 by lemarino         ###   ########.fr       */
+/*   Updated: 2025/03/24 19:06:51 by lemarino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,52 +17,63 @@
 // Cost = 0: push (pa).
 // Costs with equal sign mean that a certain amount of moves can be executed
 //  at the same time (rr and rrr)
-void	identify_moves(t_stack **a, t_stack **b, t_stack *node_a, t_stack *node_b)
+
+static void	double_rotations(t_stack **a, t_stack **b, \
+											t_rotations	*rot_counter)
 {
-	int	a_rots;
-	int	b_rots;
-
-	a_rots = node_a->cost_a;
-	b_rots = node_b->cost_b;
-
-	// printf(YELLOW"a_rots: %d, b_rots: %d\n"NO_COLOR, a_rots, b_rots);//##################
-	while (a_rots != 0 || b_rots != 0)
+	if (rot_counter->a_rots > 0 && rot_counter->b_rots > 0)
 	{
-		if (a_rots > 0 && b_rots > 0)
-		{
-			rrr(a, b);
-			a_rots--;
-			b_rots--;
-		}
-		else if (a_rots < 0 && b_rots < 0)
-		{
-			rr(a, b);
-			a_rots++;
-			b_rots++;
-		}
+		rrr(a, b);
+		rot_counter->a_rots--;
+		rot_counter->b_rots--;
+	}
+	else if (rot_counter->a_rots < 0 && rot_counter->b_rots < 0)
+	{
+		rr(a, b);
+		rot_counter->a_rots++;
+		rot_counter->b_rots++;
+	}
+}
+
+static void	single_rotations(t_stack **a, t_stack **b, \
+											t_rotations	*rot_counter)
+{
+	if (rot_counter->a_rots > 0)
+	{
+		rra(a);
+		rot_counter->a_rots--;
+	}
+	else if (rot_counter->a_rots < 0)
+	{
+		ra(a);
+		rot_counter->a_rots++;
+	}
+	if (rot_counter->b_rots > 0)
+	{
+		rrb(b);
+		rot_counter->b_rots--;
+	}
+	else if (rot_counter->b_rots < 0)
+	{
+		rb(b);
+		rot_counter->b_rots++;
+	}
+}
+
+void	identify_moves(t_stack **a, t_stack **b, t_stack *node_a, \
+														t_stack *node_b)
+{
+	t_rotations	rot_counter;
+
+	rot_counter.a_rots = node_a->cost_a;
+	rot_counter.b_rots = node_b->cost_b;
+	while (rot_counter.a_rots != 0 || rot_counter.b_rots != 0)
+	{
+		if ((rot_counter.a_rots > 0 && rot_counter.b_rots > 0) || \
+						(rot_counter.a_rots < 0 && rot_counter.b_rots < 0))
+			double_rotations(a, b, &rot_counter);
 		else
-		{
-			if (a_rots > 0)
-			{
-				rra(a);
-				a_rots--;
-			}
-			else if (a_rots < 0)
-			{
-				ra(a);
-				a_rots++;
-			}
-			if (b_rots > 0)
-			{
-				rrb(b);
-				b_rots--;
-			}
-			else if (b_rots < 0)
-			{
-				rb(b);
-				b_rots++;
-			}
-		}
+			single_rotations(a, b, &rot_counter);
 	}
 	pa(b, a);
 }
@@ -71,15 +82,14 @@ void	identify_moves(t_stack **a, t_stack **b, t_stack *node_a, t_stack *node_b)
 //  cheapest node to push from stackB 
 void	match_nodes(t_stack **a, t_stack **b, int *costs_arr)
 {
-	t_stack *cheapest_node;
-	t_stack *tmp_b;
+	t_stack	*cheapest_node;
+	t_stack	*tmp_b;
 	t_stack	*tmp_a;
 	t_stack	*tmp_a2;
 	int		i;
 
 	i = 1;
 	cheapest_node = ft_lowest_cost(*b, costs_arr);
-	// printf(CYAN"2-selected B node: %d, moves: %d\n"NO_COLOR, cheapest_node->nbr, cheapest_node->cost_b);//##################
 	tmp_a = *a;
 	tmp_b = cheapest_node;
 	while (tmp_a)

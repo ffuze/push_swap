@@ -6,7 +6,7 @@
 /*   By: lemarino <lemarino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 12:43:10 by lemarino          #+#    #+#             */
-/*   Updated: 2025/03/24 15:36:49 by lemarino         ###   ########.fr       */
+/*   Updated: 2025/03/25 15:26:13 by lemarino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "libft.h"
+# include <limits.h>
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~MACROS~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
@@ -30,16 +31,27 @@
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~STRUCTS~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
+
+typedef	struct		s_rotations
+{
+	int				a_rots;// Rotation counter for stack A
+	int				b_rots;// Rotation counter for stack B
+}					t_rotations;
+
 typedef	struct		s_stack
 {
-	int				nbr;
-	int				index;
+	long			nbr;
+	long			index;
 	int				cost_a;
 	int				cost_b;
 	struct s_stack	*next;
 }					t_stack;
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+// ps_parsing.c
+char	**get_arguments(int ac, char **av);
+int		ft_parsing(char **args);
 
 // ps_listutils.c
 t_stack				*ft_fill_stack(char **array);
@@ -69,10 +81,10 @@ void				pb(t_stack **stack_a, t_stack **stack_b);
 // ps_indexing.c
 void				create_index(char **array, t_stack *root);
 
-// ps_selection.c
-// void				fill_stack_b(t_stack **stack_a, t_stack **stack_b);
-void				push_to_three(t_stack **stack_a, t_stack **stack_b/* , int len_stack_a */);
-// void				push_lowest(t_stack **stack_a, t_stack **stack_b, int len_stack_a);
+// ps_push_toB.c.c
+void				fill_stack_b(t_stack **stack_a, t_stack **stack_b);
+void				push_to_three(t_stack **stack_a, t_stack **stack_b, int len_stack_a);
+void				push_lowest(t_stack **stack_a, t_stack **stack_b, int len_stack_a);
 
 // ps_three_sort.c
 void				three_sort(t_stack **stack_a);
@@ -91,6 +103,7 @@ void				match_nodes(t_stack **a, t_stack **b, int *costs_arr);
 
 // ps_liberate
 void				free_stack(t_stack **root);
+void				free_array(char **array);
 
 #endif
 

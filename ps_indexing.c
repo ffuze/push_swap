@@ -6,15 +6,15 @@
 /*   By: lemarino <lemarino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 12:01:32 by lemarino          #+#    #+#             */
-/*   Updated: 2025/03/22 15:25:53 by lemarino         ###   ########.fr       */
+/*   Updated: 2025/03/25 13:26:13 by lemarino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	swap(int *a, int *b)
+static void	swap(long *a, long *b)
 {
-	int	tmp;
+	long	tmp;
 
 	tmp = *a;
 	*a = *b;

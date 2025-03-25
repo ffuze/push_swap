@@ -6,7 +6,7 @@
 /*   By: lemarino <lemarino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 22:55:51 by lemarino          #+#    #+#             */
-/*   Updated: 2025/03/20 18:19:41 by lemarino         ###   ########.fr       */
+/*   Updated: 2025/03/25 15:25:34 by lemarino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,21 @@ void	free_stack(t_stack **root)
 	while (*root)
 	{
 		tmp = (*root)->next;
-		// printf(RED"%d\n"NO_COLOR, (*root)->nbr);//##################
 		free(*root);
 		*root = tmp;
 	}
 	tmp = NULL;
+}
+
+void	free_array(char **array)
+{
+	int	i;
+
+	i = 0;
+	while (array[i])
+	{
+		free(array[i]);
+		i++;
+	}
+	free(array);
 }
