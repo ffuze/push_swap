@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ps_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lemarino <lemarino@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adegl-in <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 16:47:34 by lemarino          #+#    #+#             */
-/*   Updated: 2025/03/24 16:06:37 by lemarino         ###   ########.fr       */
+/*   Updated: 2025/03/30 20:42:56 by adegl-in         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	ss(t_stack **stack_a, t_stack **stack_b)
 	if (*stack_a && (*stack_a)->next && *stack_b && (*stack_b)->next)
 	{
 		ft_swap(stack_a);
-		ft_swap(stack_b);  
+		ft_swap(stack_b);
 		ft_printf("ss\n");
 	}
 }

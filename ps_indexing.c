@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ps_indexing.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lemarino <lemarino@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adegl-in <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 12:01:32 by lemarino          #+#    #+#             */
-/*   Updated: 2025/03/25 13:26:13 by lemarino         ###   ########.fr       */
+/*   Updated: 2025/03/30 20:37:18 by adegl-in         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	swap(long *a, long *b)
 	*b = tmp;
 }
 
-static void	*sort_list(t_stack *root)
+void	*sort_list(t_stack *root)
 {
 	t_stack	*lst;
 	t_stack	*begin;
@@ -45,7 +45,7 @@ static void	*sort_list(t_stack *root)
 
 void	create_index(char **array, t_stack *root)
 {
-	t_stack *sortedcpy;
+	t_stack	*sortedcpy;
 	t_stack	*tmp;
 	t_stack	*cpyhead;
 	int		i;

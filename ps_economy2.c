@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ps_economy2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lemarino <lemarino@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adegl-in <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 18:40:07 by lemarino          #+#    #+#             */
-/*   Updated: 2025/03/24 19:09:39 by lemarino         ###   ########.fr       */
+/*   Updated: 2025/03/30 20:36:17 by adegl-in         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static int	fill_costs_array(t_stack *a, t_stack *tmp_b)
 	t_stack	*tmp_a;
 	t_stack	*tmp_a2;
 	int		i;
-	
+
 	tmp_a = a;
 	i = 1;
 	while (tmp_a)

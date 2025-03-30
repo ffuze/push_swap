@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ps_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lemarino <lemarino@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adegl-in <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 14:58:08 by lemarino          #+#    #+#             */
-/*   Updated: 2025/03/24 15:56:46 by lemarino         ###   ########.fr       */
+/*   Updated: 2025/03/30 20:40:14 by adegl-in         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	ft_rotate(t_stack **root)
 {
 	t_stack	*last;
 	t_stack	*first;
-	t_stack *tmp;
-	
+	t_stack	*tmp;
+
 	last = *root;
 	first = (*root)->next;
 	tmp = *root;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ps_listutils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lemarino <lemarino@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adegl-in <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 17:52:45 by lemarino          #+#    #+#             */
-/*   Updated: 2025/03/25 12:38:41 by lemarino         ###   ########.fr       */
+/*   Updated: 2025/03/30 20:38:45 by adegl-in         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,17 @@ t_stack	*ft_fill_stack(char **args)
 	t_stack	*new_node;
 	t_stack	*root;
 	t_stack	*prev;
-	int	i;
+	int		i;
 
 	i = 0;
 	new_node = NULL;
-	while(args[i])
+	while (args[i])
 	{
 		prev = new_node;
 		new_node = ft_calloc(1, sizeof(t_stack));
 		if (!new_node)
 			return (NULL);
-		new_node -> nbr = ft_atoi(args[i]);
+		new_node->nbr = ft_atoi(args[i]);
 		if (i == 0)
 			root = new_node;
 		else
@@ -40,7 +40,7 @@ t_stack	*ft_fill_stack(char **args)
 // Counts the number of nodes in a stack.
 int	ft_stacksize(t_stack *root)
 {
-	int	count;
+	int		count;
 	t_stack	*tmp;
 
 	tmp = root;
@@ -73,7 +73,7 @@ void	lowest_to_top(t_stack **stack)
 		tmp = tmp->next;
 		i++;
 	}
-	if (i > ft_stacksize(*stack))
+	if (i > ft_stacksize(*stack) / 2)
 	{
 		while ((*stack)->index != 0)
 			rra(stack);
@@ -83,4 +83,29 @@ void	lowest_to_top(t_stack **stack)
 		while ((*stack)->index != 0)
 			ra(stack);
 	}
+}
+
+long	ft_atol(const char *str)
+{
+	int		i;
+	long	res;
+	int		sign;
+
+	i = 0;
+	res = 0;
+	sign = 1;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			sign = -1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		res = res * 10 + (str[i] - '0');
+		i++;
+	}
+	return (res * sign);
 }
