@@ -6,7 +6,7 @@
 /*   By: adegl-in <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 12:10:34 by lemarino          #+#    #+#             */
-/*   Updated: 2025/03/30 20:35:17 by adegl-in         ###   ########.fr       */
+/*   Updated: 2025/03/31 10:11:02 by adegl-in         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,12 @@ void	nice_try(t_stack **stack_a, t_stack **stack_b)
 	while (head_b)
 		head_b = head_b->next;
 	free(costs_arr);
+}
+
+static void	free_stuff(char **args, t_stack *stack_a)
+{
+	free_array(args);
+	free_stack(&stack_a);
 }
 
 int	main(int ac, char *av[])
@@ -55,6 +61,5 @@ int	main(int ac, char *av[])
 	while (stack_a)
 		stack_a = stack_a->next;
 	stack_a = head_a;
-	free_array(args);
-	free_stack(&stack_a);
+	free_stuff(args, stack_a);
 }

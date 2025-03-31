@@ -6,7 +6,7 @@
 /*   By: adegl-in <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 12:43:10 by lemarino          #+#    #+#             */
-/*   Updated: 2025/03/30 20:47:18 by adegl-in         ###   ########.fr       */
+/*   Updated: 2025/03/31 10:20:21 by adegl-in         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@
 # define MAGENTA "\033[95m"
 # define CYAN "\033[36m"
 
-typedef struct	s_rotations
+typedef struct s_rotations
 {
 	int	a_rots;// Rotation counter for stack A
 	int	b_rots;// Rotation counter for stack B
 }	t_rotations;
 
-typedef struct	s_stack
+typedef struct s_stack
 {
 	long			nbr;
 	long			index;

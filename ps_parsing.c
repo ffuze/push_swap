@@ -6,7 +6,7 @@
 /*   By: adegl-in <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 19:46:35 by lemarino          #+#    #+#             */
-/*   Updated: 2025/03/30 20:39:00 by adegl-in         ###   ########.fr       */
+/*   Updated: 2025/03/31 11:41:51 by adegl-in         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,6 @@ int	is_valid_number(char *str)
 			return (0);
 		i++;
 	}
-	if (str[0] == '0' && str[1] != '\0')
-		return (0);
-	if ((str[0] == '-' || str[0] == '+') && str[1] == '0' && str[2] != '\0')
-		return (0);
 	return (1);
 }
 
@@ -46,7 +42,7 @@ int	search_dups(char **args)
 		while (args[j])
 		{
 			if (ft_atoi(args[i]) == ft_atoi(args[j]))
-				return (ft_printf(RED"Error\n"NO_COLOR), 0);
+				return (0);
 			j++;
 		}
 		i++;
@@ -60,7 +56,7 @@ int	ft_parsing(char **args)
 	long	num;
 
 	if (!args || !args[0])
-		return (ft_printf(RED"Error\n"NO_COLOR), 0);
+		return (0);
 	i = 0;
 	while (args[i])
 	{
@@ -103,12 +99,12 @@ char	**get_arguments(int ac, char **av)
 	args = NULL;
 	if (ac == 2)
 	{
-		if (av[1][0] == '\0' || !ft_parsing(&av[1]))
+		if (av[1][0] == '\0')
 			return (ft_printf(RED"Error\n"NO_COLOR), NULL);
 		else if (is_valid_number(av[1]) == 1)
 			return (NULL);
 		args = ft_split(av[1], ' ');
-		if (!args || !args[0])
+		if (!args || !args[0] || !ft_parsing(args))
 			return (ft_printf(RED"Error\n"NO_COLOR), free_array(args), NULL);
 	}
 	else if (ac > 2)
